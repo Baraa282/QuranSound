@@ -172,12 +172,80 @@ border:0;
 padding:0;
 }
 
+#reciterContainer {
+position:relative;
+width:100%;
+margin-bottom:10px;
+}
+
 #reciterName {
+display:block;
 text-align:center;
-margin-top:15px;
-font-size:1rem;
+font-size:0.95rem;
 color:#1F1F1F;
 font-weight:500;
+width:100%;
+padding:8px 0;
+cursor:pointer;
+border-radius:4px;
+transition:background-color 0.3s ease;
+}
+
+#reciterName:hover {
+background-color:rgba(0, 0, 0, 0.05);
+}
+
+.reciter-select {
+position:relative;
+}
+
+.dropdown-arrow {
+font-size:0.7rem;
+margin-left:5px;
+transition:transform 0.3s ease;
+}
+
+.reciter-dropdown {
+display:none;
+position:absolute;
+top:100%;
+left:50%;
+transform:translateX(-50%);
+background-color:#fff;
+border:1px solid rgba(0, 0, 0, 0.1);
+border-radius:4px;
+box-shadow:0 4px 6px rgba(0, 0, 0, 0.1);
+min-width:250px;
+max-height:300px;
+overflow-y:auto;
+z-index:1000;
+margin-top:5px;
+}
+
+.reciter-dropdown.show {
+display:block;
+}
+
+.reciter-option {
+padding:12px 20px;
+color:#1F1F1F;
+cursor:pointer;
+font-size:0.9rem;
+transition:background-color 0.2s ease;
+border-bottom:1px solid rgba(0, 0, 0, 0.05);
+}
+
+.reciter-option:last-child {
+border-bottom:none;
+}
+
+.reciter-option:hover {
+background-color:rgba(0, 0, 0, 0.05);
+}
+
+.reciter-option.active {
+background-color:#CFE1B9;
+font-weight:600;
 }
 
 

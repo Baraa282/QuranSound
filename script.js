@@ -20,7 +20,18 @@ jQuery(function ($) {
         // initialize playlist and controls
         var index = 0,
             playing = false,
-            mediaPath = 'https://server8.mp3quran.net/afs/',
+            currentReciter = 'afs',
+            reciterPaths = {
+                'afs': 'https://server8.mp3quran.net/afs/',
+                'abd_basit': 'https://server8.mp3quran.net/abd_basit/',
+                'abdullah_basfar': 'https://server8.mp3quran.net/abdullah_basfar/',
+                'saad_al_ghamdi': 'https://server8.mp3quran.net/saad_al_ghamdi/',
+                'maher_al_muaiqly': 'https://server8.mp3quran.net/maher_al_muaiqly/',
+                'mohammed_al_tablawi': 'https://server8.mp3quran.net/mohammed_al_tablawi/',
+                'abdur_rahman_as_sudais': 'https://server11.mp3quran.net/sds/',
+                'salah_al_budair': 'https://server8.mp3quran.net/salah_al_budair/'
+            },
+            mediaPath = reciterPaths[currentReciter],
             extension = '.mp3',
             tracks = [
                 {"track": 1, "name": "Al-Fatihah (The Opening)", "duration": "0:00", "file": "001"},
@@ -224,7 +235,40 @@ jQuery(function ($) {
             playTrack = function (id) {
                 loadTrack(id);
                 audio.play();
+            },
+            changeReciter = function (reciterKey, reciterName) {
+                currentReciter = reciterKey;
+                mediaPath = reciterPaths[currentReciter];
+                $('#reciterName').html(reciterName + ' <span class="dropdown-arrow">▼</span>');
+                $('.reciter-option').removeClass('active');
+                $('.reciter-option[data-reciter="' + reciterKey + '"]').addClass('active');
+                $('#reciterDropdown').removeClass('show');
+                // Reload current track with new reciter
+                loadTrack(index);
             };
+        
+        // Reciter dropdown functionality
+        $('#reciterName').on('click', function(e) {
+            e.stopPropagation();
+            $('#reciterDropdown').toggleClass('show');
+        });
+        
+        $('.reciter-option').on('click', function() {
+            var reciterKey = $(this).data('reciter');
+            var reciterName = $(this).data('name');
+            changeReciter(reciterKey, reciterName);
+        });
+        
+        // Close dropdown when clicking outside
+        $(document).on('click', function(e) {
+            if (!$(e.target).closest('#reciterContainer').length) {
+                $('#reciterDropdown').removeClass('show');
+            }
+        });
+        
+        // Set initial active reciter
+        $('.reciter-option[data-reciter="' + currentReciter + '"]').addClass('active');
+        
         loadTrack(index);
     } else {
         // no audio support
