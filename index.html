@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quran Sound Player</title>
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,13 +20,15 @@
                         </div>
                         <div id="reciterDropdown" class="reciter-dropdown">
                             <div class="reciter-option" data-reciter="afs" data-name="Mishary Rashid Alafasy">Mishary Rashid Alafasy</div>
-                            <div class="reciter-option" data-reciter="abd_basit" data-name="Abdul Basit Abdul Samad">Abdul Basit Abdul Samad</div>
-                            <div class="reciter-option" data-reciter="abdullah_basfar" data-name="Abdullah Basfar">Abdullah Basfar</div>
-                            <div class="reciter-option" data-reciter="saad_al_ghamdi" data-name="Saad Al Ghamdi">Saad Al Ghamdi</div>
-                            <div class="reciter-option" data-reciter="maher_al_muaiqly" data-name="Maher Al Muaiqly">Maher Al Muaiqly</div>
-                            <div class="reciter-option" data-reciter="mohammed_al_tablawi" data-name="Mohammed Al Tablawi">Mohammed Al Tablawi</div>
+                            <div class="reciter-option" data-reciter="saad_al_ghamdi" data-name="Saad Al-Ghamdi">Saad Al-Ghamdi</div>
+                            <div class="reciter-option" data-reciter="abu_bakr_al_shatri" data-name="Abu Bakr Al Shatri">Abu Bakr Al Shatri</div>
+                            <div class="reciter-option" data-reciter="mohammed_ayyub" data-name="Mohammed Ayyub">Mohammed Ayyub</div>
+                            <div class="reciter-option" data-reciter="mohammed_siddiq_al_minshawi" data-name="Mohammed Siddiq Al-Minshawi">Mohammed Siddiq Al-Minshawi</div>
+                            <div class="reciter-option" data-reciter="mahmoud_khalil_al_hussary" data-name="Mahmoud Khalil Al-Hussary">Mahmoud Khalil Al-Hussary</div>
+                            <div class="reciter-option" data-reciter="mohammed_jibreel" data-name="Mohammed Jibreel">Mohammed Jibreel</div>
+                            <div class="reciter-option" data-reciter="saud_al_shuraim" data-name="Saud Al-Shuraim">Saud Al-Shuraim</div>
+                            <div class="reciter-option" data-reciter="mahmoud_ali_albanna" data-name="Mahmoud Ali Albanna">Mahmoud Ali Albanna</div>
                             <div class="reciter-option" data-reciter="abdur_rahman_as_sudais" data-name="Abdur Rahman As Sudais">Abdur Rahman As Sudais</div>
-                            <div class="reciter-option" data-reciter="salah_al_budair" data-name="Salah Al Budair">Salah Al Budair</div>
                         </div>
                     </div>
                     <span id="npAction">Paused...</span><span id="npTitle"></span>
@@ -38,6 +42,11 @@
                     </div>
                 </div>
                 <div id="plwrap">
+                    <div id="searchBar" class="search-bar-container">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="surahSearch" placeholder="Search surah by name (Arabic or English)..." autocomplete="off">
+                        <i class="fas fa-times clear-icon" id="clearSearch" style="display:none;"></i>
+                    </div>
                     <ul id="plList"></ul>
                 </div>
             </div>
